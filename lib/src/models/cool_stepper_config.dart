@@ -48,6 +48,9 @@ class CoolStepperConfig {
   /// Must be one less than the number of steps since the 'finalText' attribute is able to set the value for the final step's next button
   final List<String>? nextTextList;
 
+  /// This is the textStyle for the next button
+  final TextStyle? nextTextStyle;
+
   /// The text that should be displayed for the next button on the final step
   ///
   /// default is 'FINISH'
@@ -65,6 +68,7 @@ class CoolStepperConfig {
     this.icon,
     this.titleTextStyle,
     this.subtitleTextStyle,
+    this.nextTextStyle,
     this.backTextList,
     this.nextTextList,
     this.finalText = 'FINISH',

@@ -1,14 +1,13 @@
 library cool_stepper;
 
-export 'package:cool_stepper/src/models/cool_step.dart';
-export 'package:cool_stepper/src/models/cool_stepper_config.dart';
-
 import 'package:another_flushbar/flushbar.dart';
-
 import 'package:cool_stepper/src/models/cool_step.dart';
 import 'package:cool_stepper/src/models/cool_stepper_config.dart';
 import 'package:cool_stepper/src/widgets/cool_stepper_view.dart';
 import 'package:flutter/material.dart';
+
+export 'package:cool_stepper/src/models/cool_step.dart';
+export 'package:cool_stepper/src/models/cool_stepper_config.dart';
 
 /// CoolStepper
 class CoolStepper extends StatefulWidget {
@@ -188,9 +187,8 @@ class _CoolStepperState extends State<CoolStepper> {
             onPressed: onStepNext,
             child: Text(
               getNextLabel(),
-              style: TextStyle(
-                color: Colors.green,
-              ),
+              style: widget.config.nextTextStyle ??
+                  TextStyle(color: Color(0xFF1976D2)),
             ),
           ),
         ],

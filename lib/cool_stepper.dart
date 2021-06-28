@@ -183,21 +183,24 @@ class _CoolStepperState extends State<CoolStepper> {
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              GestureDetector(
-                onTap: onStepBack,
-                child: Row(
-                  children: [
-                    prevLabel.isNotEmpty
-                        ? Icon(Icons.chevron_left)
-                        : SizedBox(),
-                    Text(
-                      prevLabel,
-                      style: const TextStyle(
-                          color: Colors.grey, fontWeight: FontWeight.w600),
+              _isFirst(currentStep)
+                  ? widget.config.navigateBackButton ?? SizedBox()
+                  : GestureDetector(
+                      onTap: onStepBack,
+                      child: Row(
+                        children: [
+                          prevLabel.isNotEmpty
+                              ? Icon(Icons.chevron_left)
+                              : SizedBox(),
+                          Text(
+                            prevLabel,
+                            style: const TextStyle(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.w600),
+                          )
+                        ],
+                      ),
                     )
-                  ],
-                ),
-              )
             ],
           ),
           Row(

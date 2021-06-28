@@ -57,8 +57,11 @@ class CoolStepperConfig {
   final String? finalText;
 
   final bool isHeaderEnabled;
-  
+
   final bool bottomButtons;
+
+  /// Shown on first step when prevLabel is empty
+  final Widget? navigateBackButton;
 
   const CoolStepperConfig({
     this.backText = 'PRE',
@@ -72,6 +75,7 @@ class CoolStepperConfig {
     this.subtitleTextStyle,
     this.nextTextStyle,
     this.backTextList,
+    this.navigateBackButton,
     this.nextTextList,
     this.finalText = 'FINISH',
     this.isHeaderEnabled = true,

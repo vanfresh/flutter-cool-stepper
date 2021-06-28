@@ -175,38 +175,57 @@ class _CoolStepperState extends State<CoolStepper> {
     final nextLabel = getNextLabel();
 
     final buttons = Container(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          GestureDetector(
-            onTap: onStepBack,
-            child: Row(
-              children: [
-                prevLabel.isNotEmpty ? Icon(Icons.chevron_left) : SizedBox(),
-                Text(
-                  prevLabel,
-                  style: const TextStyle(
-                      color: Colors.grey, fontWeight: FontWeight.w500),
-                )
-              ],
-            ),
-          ),
-          counter,
-          GestureDetector(
-            onTap: onStepNext,
-            child: Row(
-              children: [
-                Text(
-                  nextLabel,
-                  style: widget.config.nextTextStyle ??
-                      const TextStyle(
-                          color: Color(0xFF1976D2),
-                          fontWeight: FontWeight.w500),
+      height: 55.0,
+      color: Colors.white,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              GestureDetector(
+                onTap: onStepBack,
+                child: Row(
+                  children: [
+                    prevLabel.isNotEmpty
+                        ? Icon(Icons.chevron_left)
+                        : SizedBox(),
+                    Text(
+                      prevLabel,
+                      style: const TextStyle(
+                          color: Colors.grey, fontWeight: FontWeight.w600),
+                    )
+                  ],
                 ),
-                nextLabel.isNotEmpty ? Icon(Icons.chevron_right) : SizedBox(),
-              ],
-            ),
+              )
+            ],
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [counter],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              GestureDetector(
+                onTap: onStepNext,
+                child: Row(
+                  children: [
+                    Text(
+                      nextLabel,
+                      style: widget.config.nextTextStyle ??
+                          const TextStyle(
+                              color: Color(0xFF1976D2),
+                              fontWeight: FontWeight.w600),
+                    ),
+                    nextLabel.isNotEmpty
+                        ? Icon(Icons.chevron_right)
+                        : SizedBox(),
+                  ],
+                ),
+              )
+            ],
+          )
         ],
       ),
     );

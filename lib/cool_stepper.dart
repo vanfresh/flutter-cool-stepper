@@ -190,12 +190,16 @@ class _CoolStepperState extends State<CoolStepper> {
                       child: Row(
                         children: [
                           prevLabel.isNotEmpty
-                              ? Icon(Icons.chevron_left)
+                              ? Icon(
+                                  Icons.chevron_left,
+                                  size: 28.0,
+                                  color: Colors.grey.shade500,
+                                )
                               : SizedBox(),
                           Text(
                             prevLabel,
-                            style: const TextStyle(
-                                color: Colors.grey,
+                            style: TextStyle(
+                                color: Colors.grey.shade500,
                                 fontWeight: FontWeight.w600),
                           )
                         ],
@@ -217,12 +221,10 @@ class _CoolStepperState extends State<CoolStepper> {
                     Text(
                       nextLabel,
                       style: widget.config.nextTextStyle ??
-                          const TextStyle(
-                              color: Color(0xFF1976D2),
-                              fontWeight: FontWeight.w600),
+                          const TextStyle(fontWeight: FontWeight.w600),
                     ),
                     nextLabel.isNotEmpty
-                        ? Icon(Icons.chevron_right)
+                        ? Icon(Icons.chevron_right, size: 28.0)
                         : SizedBox(),
                   ],
                 ),

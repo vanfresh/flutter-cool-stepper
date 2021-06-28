@@ -171,24 +171,40 @@ class _CoolStepperState extends State<CoolStepper> {
       return backLabel;
     }
 
+    final prevLabel = getPrevLabel();
+    final nextLabel = getNextLabel();
+
     final buttons = Container(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          TextButton(
-            onPressed: onStepBack,
-            child: Text(
-              getPrevLabel(),
-              style: TextStyle(color: Colors.grey),
+          GestureDetector(
+            onTap: onStepBack,
+            child: Row(
+              children: [
+                prevLabel.isNotEmpty ? Icon(Icons.chevron_left) : SizedBox(),
+                Text(
+                  prevLabel,
+                  style: const TextStyle(
+                      color: Colors.grey, fontWeight: FontWeight.w500),
+                )
+              ],
             ),
           ),
           counter,
-          TextButton(
-            onPressed: onStepNext,
-            child: Text(
-              getNextLabel(),
-              style: widget.config.nextTextStyle ??
-                  TextStyle(color: Color(0xFF1976D2)),
+          GestureDetector(
+            onTap: onStepNext,
+            child: Row(
+              children: [
+                Text(
+                  nextLabel,
+                  style: widget.config.nextTextStyle ??
+                      const TextStyle(
+                          color: Color(0xFF1976D2),
+                          fontWeight: FontWeight.w500),
+                ),
+                nextLabel.isNotEmpty ? Icon(Icons.chevron_right) : SizedBox(),
+              ],
             ),
           ),
         ],

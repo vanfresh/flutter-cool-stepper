@@ -232,7 +232,9 @@ class _CoolStepperState extends State<CoolStepper> {
 
     return Container(
       child: Column(
-        children: [content, buttons],
+        children: widget.config.bottomButtons
+            ? [content, buttons]
+            : [buttons, content],
       ),
     );
   }

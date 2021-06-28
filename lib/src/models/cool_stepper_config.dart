@@ -57,6 +57,8 @@ class CoolStepperConfig {
   final String? finalText;
 
   final bool isHeaderEnabled;
+  
+  final bool bottomButtons;
 
   const CoolStepperConfig({
     this.backText = 'PRE',
@@ -73,5 +75,6 @@ class CoolStepperConfig {
     this.nextTextList,
     this.finalText = 'FINISH',
     this.isHeaderEnabled = true,
+    this.bottomButtons = true,
   });
 }

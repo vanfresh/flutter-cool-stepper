@@ -17,12 +17,12 @@ class CoolStepperView extends StatelessWidget {
     this.contentPadding,
     required this.config,
   }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    final title = config!.isHeaderEnabled && step.isHeaderEnabled
+    final header = config!.isHeaderEnabled && step.isHeaderEnabled
         ? Container(
             width: double.infinity,
-            margin: EdgeInsets.only(bottom: 20.0),
             padding: EdgeInsets.all(20.0),
             decoration: BoxDecoration(
               color: config!.headerColor ??
@@ -84,7 +84,7 @@ class CoolStepperView extends StatelessWidget {
     return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [title, content],
+        children: [header, content],
       ),
     );
   }
